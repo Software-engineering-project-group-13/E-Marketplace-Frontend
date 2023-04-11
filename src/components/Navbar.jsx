@@ -116,7 +116,7 @@ const Navbar = () => {
             <AccountCircle style={{ color: "white", fontSize: 30 }} />
             <p>
               <Link
-                to="/login"
+                to="/register"
                 style={{ textDecoration: "none", color: "white" }}
               >
                 Profile

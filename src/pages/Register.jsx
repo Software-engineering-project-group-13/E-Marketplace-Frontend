@@ -13,11 +13,12 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  /* display: flex;   */
+  display: flex;  
   padding: 20px;
   width: 30%;
-  background-color: #ebf1ea;
+  background-color: #f6f8fa;
   border-radius: 10px;
+  flex-direction: column;
 
 `;
 
@@ -25,35 +26,78 @@ const Title = styled.h1`
   font-size: 30px;
   font-weight: 750;
   margin: auto;
+  margin-bottom: 15px;
 `;
 
 const List = styled.form`
   display:flex;
   flex-wrap: wrap;
+  flex-direction: column;
 `;
 
-const Input = styled.input`
+const Input1 = styled.input`
   flex: 1;
-  min-width: 50%;
-  margin: 20px 5px 0px 0px;
+  width: 13vw;
+  margin: 0px 5px 20px 0px;
   padding: 10px;
   border-radius: 5px;
   border-color: white;
+  border: none;
+  box-shadow: 0px 0px 5px #ddd;
+`
+
+const Input = styled.input`
+  flex: 1;
+  width: 28vw;
+  margin: 0px 5px 20px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: white;
+  border: none;
+  box-shadow: 0px 0px 5px #ddd;
 `;
 
+const Inputid = styled.div`
+  display: flex;
+  margin: 1px;
+  width: 20vw;
+  /* align-items: center; */
+  /* justify-content: center; */
+  flex-direction: column;
+`;
+
+const Idname = styled.p`
+  color: black;
+  margin-bottom: 3px;
+  font-size: 15px;
+  font-weight: 500;
+`
 
 const Button = styled.button`
-  width: 40%;
   border: none;
-  padding: 15px 20px;
-  background-color: #057605;
+  padding: 12px 20px;
+  background-color: #00bf63;
   margin: auto;
   margin-top: 20px;
   border-radius: 5px;
+  :hover{
+    background-color: #00964d;
+    cursor: pointer;
+  }
+  width: 20vw;
+  font-weight: 700;
 `;
-const Title1 = styled.Title`
+
+const Middler = styled.div`
   display: flex;
+  justify-content: space-around;
+  width: 30vw;
 `;
+
+const Middler1 = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const Register = () => {
   return (
@@ -61,24 +105,57 @@ const Register = () => {
       <Navbar />    
       <Container>
         <Wrapper>
-          <Title1><Title> REGISTER </Title> </Title1>
+          <Middler>
+            <Title> REGISTER </Title>
+          </Middler>
           <List>
-            <Input placeholder= "First name"/>
-            <Input placeholder= "Last name"/>
-            <Input placeholder= "Username"/>
-            <Input placeholder= "Institute email-id"/>
-            <Input placeholder= "Phone number"/>
-            <Input placeholder= "Password"/>
-            <Input placeholder= "Confirm Password"/>
+            <Middler>
+              <Inputid>
+                <Idname>First name</Idname>
+                <Input1/>            
+              </Inputid>
+              <Inputid>
+                <Idname>Last name</Idname>
+                <Input1/>
+              </Inputid>
+            </Middler>
+            <Inputid>
+              <Idname>Username</Idname>
+              <Input />
+            </Inputid>
+            
+            <Inputid>
+            <Idname>Institute email-id</Idname>
+            <Input/>
+            </Inputid>
+            
+            
+            <Inputid>
+            <Idname>Phone number</Idname>
+            <Input/>
+            </Inputid>
+            
+            
+            <Inputid>
+            <Idname>Password</Idname>
+            <Input/>
+            </Inputid>
+            
+            
+            <Inputid>
+            <Idname>Confirm Password</Idname>
+            <Input/>
+            </Inputid>
+            
           </List>
-            <Button style={{ color: "white"}}>
-            <Link
-                to="/"
-                style={{ textDecoration: "none", color: "white" }}
-              >
+          <Middler1>
+            <Link to='/' style={{ textDecoration: "none", color: "white" }}>
+              <Button
+                style={{ color: "white" }}>
                 SIGNUP
-              </Link>
-            </Button>
+              </Button>
+            </Link>
+          </Middler1>
         </Wrapper> 
       </Container>
     </div>

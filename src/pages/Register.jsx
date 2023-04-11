@@ -4,10 +4,15 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
+const Filler = styled.div`
+  height: 10vh;
+` 
+
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -19,7 +24,18 @@ const Wrapper = styled.div`
   background-color: #f6f8fa;
   border-radius: 10px;
   flex-direction: column;
+`;
 
+const Wrapper1 = styled.div` 
+  margin-top: 20px;
+  padding: 20px;
+  width: 30%;
+  background-color: #f6f8fa;
+  color: blue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
 `;
 
 const Title = styled.h1`
@@ -102,7 +118,8 @@ const Middler1 = styled.div`
 const Register = () => {
   return (
     <div>
-      <Navbar />    
+      <Navbar /> 
+      <Filler></Filler>
       <Container>
         <Wrapper>
           <Middler>
@@ -156,7 +173,8 @@ const Register = () => {
               </Button>
             </Link>
           </Middler1>
-        </Wrapper> 
+        </Wrapper>
+        <Wrapper1>Already have an account?&ensp;<Link to= "/login" style={{color: "blue"}}>Login</Link></Wrapper1> 
       </Container>
     </div>
   );

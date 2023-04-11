@@ -8,6 +8,7 @@ const Container = styled.div`
   height: 50px;
   background-color: #1e285e;
   width: 100%;
+  position: fixed;
 `;
 
 const Wrapper = styled.div`

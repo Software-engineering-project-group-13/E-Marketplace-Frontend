@@ -17,6 +17,15 @@ const Container = styled.div`
   justify-content: center;
 `;
 
+const Container1 = styled.div`
+  width: 97%;
+  padding: 3px;
+  /* padding-right: 50px; */
+  display: flex;
+  justify-content: space-between;
+  background-color: #f6f8fa;
+`
+
 const Wrapper = styled.div`
   display: flex;  
   padding: 20px;
@@ -51,16 +60,16 @@ const List = styled.form`
   flex-direction: column;
 `;
 
-const Input1 = styled.input`
-  flex: 1;
-  width: 13vw;
-  margin: 0px 5px 20px 0px;
-  padding: 10px;
-  border-radius: 5px;
-  border-color: white;
-  border: none;
-  box-shadow: 0px 0px 5px #ddd;
-`
+// const Input1 = styled.input`
+//   flex: 1;
+//   width: 13vw;
+//   margin: 0px 5px 20px 0px;
+//   padding: 10px;
+//   border-radius: 5px;
+//   border-color: white;
+//   border: none;
+//   box-shadow: 0px 0px 5px #ddd;
+// `
 
 const Input = styled.input`
   flex: 1;
@@ -76,7 +85,7 @@ const Input = styled.input`
 const Inputid = styled.div`
   display: flex;
   margin: 1px;
-  width: 20vw;
+  width: 100%;
   /* align-items: center; */
   /* justify-content: center; */
   flex-direction: column;
@@ -89,12 +98,19 @@ const Idname = styled.p`
   font-weight: 500;
 `
 
+const Idname1 = styled(Link)`
+  color: blue;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: right;
+`
+
 const Button = styled.button`
   border: none;
   padding: 12px 20px;
   background-color: #00bf63;
   margin: auto;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   border-radius: 5px;
   :hover{
     background-color: #00964d;
@@ -115,7 +131,7 @@ const Middler1 = styled.div`
   justify-content: center;
 `
 
-const Register = () => {
+const NEVerification = () => {
   return (
     <div>
       <Navbar /> 
@@ -123,61 +139,40 @@ const Register = () => {
       <Container>
         <Wrapper>
           <Middler>
-            <Title> REGISTER </Title>
+            <Title> NUMBER & EMAIL VERIFICATION </Title>
           </Middler>
           <List>
-            <Middler>
-              <Inputid>
-                <Idname>First name</Idname>
-                <Input1/>            
-              </Inputid>
-              <Inputid>
-                <Idname>Last name</Idname>
-                <Input1/>
-              </Inputid>
-            </Middler>
+            <Idname>To verify that it's you, we will send an OTP to your mail and number.</Idname>
+            <br></br>
             <Inputid>
-              <Idname>Username</Idname>
+              <Idname>Email OTP</Idname>
               <Input />
             </Inputid>
-            
+
             <Inputid>
-            <Idname>Institute email-id</Idname>
-            <Input/>
+              <Idname>Number OTP</Idname>
+              < Input/>
             </Inputid>
-            
-            
-            <Inputid>
-            <Idname>Phone number</Idname>
-            <Input/>
-            </Inputid>
-            
-            
-            <Inputid>
-            <Idname>Password</Idname>
-            <Input/>
-            </Inputid>
-            
-            
-            <Inputid>
-            <Idname>Confirm Password</Idname>
-            <Input/>
-            </Inputid>
+
             
           </List>
           <Middler1>
-            <Link to='/neverification' style={{ textDecoration: "none", color: "white" }}>
+            <Link to='/' style={{ textDecoration: "none", color: "white" }}>
               <Button
                 style={{ color: "white" }}>
-                SIGNUP
+                Verify OTP's
               </Button>
             </Link>
           </Middler1>
         </Wrapper>
-        <Wrapper1>Already have an account?&ensp;<Link to= "/login" style={{color: "blue"}}>Login</Link></Wrapper1> 
+        <Wrapper1>
+          Didn't recieve the OTP?&ensp;<Link to= "/resetpassword" style={{color: "blue"}}>Resend OTP's</Link>
+          {/* Go back to Login&ensp;<Link to= "/login" style={{color: "blue"}}>Login</Link> */}
+        </Wrapper1>
+
       </Container>
     </div>
   );
 };
 
-export default Register;
+export default NEVerification;

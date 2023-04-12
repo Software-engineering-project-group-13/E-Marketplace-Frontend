@@ -14,6 +14,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+
 
 const Filler = styled.div`
   height: 10vh;
@@ -159,6 +161,7 @@ const Profile = () => {
           <Button>Edit Profile</Button>
         </Wrapper1> 
       </Container>
+      <Footer/>
     </div>
   );
 };

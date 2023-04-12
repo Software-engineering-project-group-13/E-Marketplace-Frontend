@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
+
 
 
 const Container = styled.div`
@@ -26,7 +28,8 @@ const Wrapper = styled.div`
   display: flex;  
   padding: 20px;
   width: 30%;
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
+  background-color: lightcyan;
   border-radius: 10px;
   flex-direction: column;
 `;
@@ -35,7 +38,8 @@ const Wrapper1 = styled.div`
   margin-top: 20px;
   padding: 20px;
   width: 30%;
-  background-color: #f6f8fa;
+  /* background-color: #f6f8fa; */
+  background-color: lightcyan;
   color: blue;
   border-radius: 10px;
   display: flex;
@@ -152,6 +156,7 @@ const Login = () => {
         </Wrapper>
         <Wrapper1>Don't have an account?&ensp;<Link to= "/register" style={{color: "blue"}}>Register</Link></Wrapper1> 
       </Container>
+      <Footer />
     </div>
   );
 };

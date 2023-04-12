@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 
 const Filler = styled.div`
@@ -176,6 +177,7 @@ const Register = () => {
         </Wrapper>
         <Wrapper1>Already have an account?&ensp;<Link to= "/login" style={{color: "blue"}}>Login</Link></Wrapper1> 
       </Container>
+      <Footer />
     </div>
   );
 };

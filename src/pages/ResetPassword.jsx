@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Container = styled.div`
   width: 100vw;
@@ -165,6 +166,7 @@ const ResetPassword = () => {
         </Wrapper>
         <Wrapper1>Didn't recieve the OTP?&ensp;<Link to= "/resetpassword" style={{color: "blue"}}>Resend OTP</Link></Wrapper1> 
       </Container>
+      <Footer/>
     </div>
   );
 };

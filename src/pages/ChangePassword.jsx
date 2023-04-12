@@ -4,10 +4,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
-const Filler = styled.div`
-  height: 10vh;
-` 
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -135,7 +131,6 @@ const ChangePassword = () => {
   return (
     <div>
       <Navbar /> 
-      <Filler></Filler>
       <Container>
         <Wrapper>
           <Middler>

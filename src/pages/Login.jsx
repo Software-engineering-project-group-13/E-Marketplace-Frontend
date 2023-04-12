@@ -4,10 +4,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 
-const Filler = styled.div`
-  height: 10vh;
-` 
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -60,16 +56,6 @@ const List = styled.form`
   flex-direction: column;
 `;
 
-// const Input1 = styled.input`
-//   flex: 1;
-//   width: 13vw;
-//   margin: 0px 5px 20px 0px;
-//   padding: 10px;
-//   border-radius: 5px;
-//   border-color: white;
-//   border: none;
-//   box-shadow: 0px 0px 5px #ddd;
-// `
 
 const Input = styled.input`
   flex: 1;
@@ -135,7 +121,6 @@ const Login = () => {
   return (
     <div>
       <Navbar /> 
-      <Filler></Filler>
       <Container>
         <Wrapper>
           <Middler>

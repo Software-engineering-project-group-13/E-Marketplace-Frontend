@@ -1,5 +1,7 @@
 import { HomeOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -78,7 +80,7 @@ const Right = styled.div`
   /* background-color: yellow; */
 `;
 
-const CartOption = styled.div`
+const FavoriteOption = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,10 +111,10 @@ const Navbar = () => {
         </Left>
         <Center></Center>
         <Right>
-          <CartOption>
-            <ShoppingCartOutlined style={{ color: "white", fontSize: 27 }} />
-            <p>Cart</p>
-          </CartOption>
+          <FavoriteOption>
+            <FavoriteBorderIcon style={{ color: "white", fontSize: 27 }} />
+            <p>Favorites</p>
+          </FavoriteOption>
           <ProfileOption>
             <AccountCircle style={{ color: "white", fontSize: 30 }} />
             <p>

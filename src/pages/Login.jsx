@@ -2,13 +2,9 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-<<<<<<< Updated upstream
 import Footer from "../components/Footer";
 
-
-=======
 import Button from "../components/StyledComponents";
->>>>>>> Stashed changes
 
 const Container = styled.div`
   width: 100vw;

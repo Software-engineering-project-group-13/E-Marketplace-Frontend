@@ -1,14 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-<<<<<<< Updated upstream
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-=======
 // import { Link } from "react-router-dom";
 import Button from "../components/StyledComponents";
->>>>>>> Stashed changes
 
 const Filler = styled.div`
   height: 10vh;
@@ -140,7 +137,7 @@ const Profile = () => {
           </Button>
         </Wrapper1>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

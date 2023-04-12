@@ -1,6 +1,7 @@
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import Product from "./pages/Product";
 
 import Login from "./pages/Login";
 import { Routes, Route } from "react-router-dom";
@@ -14,12 +15,11 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="register" element={<Register />} />
       <Route path="profile" element={<Profile />} />
-
+      <Route path="product" element={<Product />} />
       <Route path="login" element={<Login />} />
       <Route path="resetpassword" element={<ResetPassword />} />
       <Route path="changepassword" element={<ChangePassword />} />
       <Route path="neverification" element={<NEVerification />} />
-
     </Routes>
   );
 };

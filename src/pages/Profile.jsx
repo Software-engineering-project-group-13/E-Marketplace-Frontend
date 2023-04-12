@@ -1,32 +1,25 @@
-// import React from "react";
-// import Navbar from "../components/Navbar";
-
-// export const Profile = () => {
-//   return (
-//     <div>
-//       <Navbar />
-//     </div>
-//   );
-// };
-
-
 import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
+<<<<<<< Updated upstream
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
+=======
+// import { Link } from "react-router-dom";
+import Button from "../components/StyledComponents";
+>>>>>>> Stashed changes
 
 const Filler = styled.div`
   height: 10vh;
-` 
+  /* background-color: red; */
+`;
 
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  /* background-color: #f6f8fa; */
-
+  /* background-color: green; */
 
   /* flex-direction: column; */
   align-items: center;
@@ -34,50 +27,50 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  display: flex;  
-  /* padding: 20px; */
-  /* margin-left: 20vw; */
-  /* width: 20vw; */
-  /* background-color: #f6f8fa; */
-  /* border-radius: 10px; */
+  display: flex;
   flex-direction: column;
+  align-items: stretch;
   height: 80vh;
+  /* width: 30vw; */
+  /* background-color: yellow; */
   /* height: 1vh; */
 `;
 
-const Wrapper1 = styled.div` 
+const Wrapper1 = styled.div`
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 70vh;
+  /* background-color: yellow; */
+  align-items: center;
   justify-content: space-around;
 `;
 
-
 const List = styled.form`
-  display:flex;
+  display: flex;
   /* flex-wrap: wrap; */
   flex-direction: column;
   width: 1vw;
 `;
 
-
-
-const Input = styled.input`
+const Input = styled.p`
   /* flex: 1; */
   width: 20vw;
   margin: 0px 5px 20px 0px;
   padding: 10px;
+  padding-left: 10px;
   border-radius: 5px;
   border-color: white;
   border: none;
   box-shadow: 0px 0px 5px #ddd;
+  font-family: "DynaPuff", cursive;
+  font-weight: 500;
 `;
 
 const Inputid = styled.div`
   display: flex;
   margin: 1px;
-  width: 35vw; 
-
+  width: 35vw;
+  /* background-color: red; */
   /* align-items: center; */
   justify-content: space-between;
 `;
@@ -87,40 +80,28 @@ const Idname = styled.p`
   margin-bottom: 3px;
   font-size: 15px;
   font-weight: 500;
-  /* width: 1; */
-`
+  padding-top: 15px;
+`;
 
 const Title = styled.h1`
   font-size: 30px;
   font-weight: 750;
   /* margin: auto; */
   margin-bottom: 25px;
-`;
-
-const Button = styled.button`
-  border: none;
-  padding: 12px 20px;
-  background-color: #00bf63;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 5px;
-  :hover{
-    background-color: #00964d;
-    cursor: pointer;
-  }
-  width: 20vw;
-  font-weight: 700;
+  /* background-color: blueviolet; */
 `;
 
 const Image = styled.img`
   height: 50vh;
-
-`
+  object-fit: cover;
+  border-radius: 10%;
+  box-shadow: 0px 0px 5px #696969;
+`;
 
 const Profile = () => {
   return (
     <div>
-      <Navbar /> 
+      <Navbar />
       <Filler></Filler>
       <Container>
         <Wrapper>
@@ -128,66 +109,40 @@ const Profile = () => {
           <List>
             <Inputid>
               <Idname>NAME</Idname>
-              <Input />
+              <Input>Sahil</Input>
             </Inputid>
-            
+
             <Inputid>
-            <Idname>ROLL NO</Idname>
-            <Input/>
+              <Idname>ROLL NO</Idname>
+              <Input>CS20BTECH11033</Input>
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>EMAIL</Idname>
-            <Input/>
+              <Idname>EMAIL</Idname>
+              <Input>cs20btech11033@iith.ac.in</Input>
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>ADDRESS</Idname>
-            <Input/>
+              <Idname>ADDRESS</Idname>
+              <Input>Hyderabad</Input>
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>MOBILE NO.</Idname>
-            <Input/>
+              <Idname>MOBILE NO.</Idname>
+              <Input>9999999999</Input>
             </Inputid>
-            
           </List>
         </Wrapper>
         <Wrapper1>
-          <Image src = "https://th.bing.com/th/id/OIP.o2hpFnUg2tfIYjubSXiw7gHaKK?pid=ImgDet&rs=1"></Image>  
-          <Button>Edit Profile</Button>
-        </Wrapper1> 
+          <Image src="https://th.bing.com/th/id/OIP.o2hpFnUg2tfIYjubSXiw7gHaKK?pid=ImgDet&rs=1"></Image>
+          <Button profile style={{ color: "white" }}>
+            Edit Profile
+          </Button>
+        </Wrapper1>
       </Container>
       <Footer/>
     </div>
   );
 };
-
-// const Heading = styled.div`
-//   height: 20vw;
-//   font-size: 30px;
-//   padding-left: 100px;
-//   border-color: black;
-  
-// `
-
-// const Container = styled.div`
-
-// `
-
-// const Profile = () => {
-//   return (
-//     <div>
-//       <Navbar />
-//       <Filler></Filler>
-//       <Heading>Profile</Heading>
-//       <Container>HI</Container>
-//     </div>
-//   )
-// }
-
 
 export default Profile;

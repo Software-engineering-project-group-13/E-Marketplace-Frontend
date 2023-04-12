@@ -1,6 +1,6 @@
 import { HomeOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import React from "react";
 import styled from "styled-components";
@@ -101,9 +101,11 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <HomeButtonContainer>
-            <HomeOutlined style={{ color: "white", fontSize: 30 }} />
-          </HomeButtonContainer>
+          <Link to="/">
+            <HomeButtonContainer>
+              <HomeOutlined style={{ color: "white", fontSize: 30 }} />
+            </HomeButtonContainer>
+          </Link>
           <SearchContainer>
             <Search style={{ color: "#1e285e" }} />
             <Input placeholder="Search" />

@@ -2,12 +2,16 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+<<<<<<< Updated upstream
 import Footer from "../components/Footer";
 
+=======
+import Button from "../components/StyledComponents";
+>>>>>>> Stashed changes
 
 const Filler = styled.div`
   height: 10vh;
-` 
+`;
 
 const Container = styled.div`
   width: 100vw;
@@ -19,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  display: flex;  
+  display: flex;
   padding: 20px;
   width: 30%;
   background-color: #f6f8fa;
@@ -27,7 +31,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Wrapper1 = styled.div` 
+const Wrapper1 = styled.div`
   margin-top: 20px;
   padding: 20px;
   width: 30%;
@@ -47,7 +51,7 @@ const Title = styled.h1`
 `;
 
 const List = styled.form`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 `;
@@ -61,7 +65,7 @@ const Input1 = styled.input`
   border-color: white;
   border: none;
   box-shadow: 0px 0px 5px #ddd;
-`
+`;
 
 const Input = styled.input`
   flex: 1;
@@ -88,21 +92,6 @@ const Idname = styled.p`
   margin-bottom: 3px;
   font-size: 15px;
   font-weight: 500;
-`
-
-const Button = styled.button`
-  border: none;
-  padding: 12px 20px;
-  background-color: #00bf63;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 5px;
-  :hover{
-    background-color: #00964d;
-    cursor: pointer;
-  }
-  width: 20vw;
-  font-weight: 700;
 `;
 
 const Middler = styled.div`
@@ -114,12 +103,12 @@ const Middler = styled.div`
 const Middler1 = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const Register = () => {
   return (
     <div>
-      <Navbar /> 
+      <Navbar />
       <Filler></Filler>
       <Container>
         <Wrapper>
@@ -130,52 +119,53 @@ const Register = () => {
             <Middler>
               <Inputid>
                 <Idname>First name</Idname>
-                <Input1/>            
+                <Input1 />
               </Inputid>
               <Inputid>
                 <Idname>Last name</Idname>
-                <Input1/>
+                <Input1 />
               </Inputid>
             </Middler>
             <Inputid>
               <Idname>Username</Idname>
               <Input />
             </Inputid>
-            
+
             <Inputid>
-            <Idname>Institute email-id</Idname>
-            <Input/>
+              <Idname>Institute email-id</Idname>
+              <Input />
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>Phone number</Idname>
-            <Input/>
+              <Idname>Phone number</Idname>
+              <Input />
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>Password</Idname>
-            <Input/>
+              <Idname>Password</Idname>
+              <Input />
             </Inputid>
-            
-            
+
             <Inputid>
-            <Idname>Confirm Password</Idname>
-            <Input/>
+              <Idname>Confirm Password</Idname>
+              <Input />
             </Inputid>
-            
           </List>
           <Middler1>
-            <Link to='/neverification' style={{ textDecoration: "none", color: "white" }}>
-              <Button
-                style={{ color: "white" }}>
-                SIGNUP
-              </Button>
+            <Link
+              to="/neverification"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <Button style={{ color: "white" }}>SIGNUP</Button>
             </Link>
           </Middler1>
         </Wrapper>
-        <Wrapper1>Already have an account?&ensp;<Link to= "/login" style={{color: "blue"}}>Login</Link></Wrapper1> 
+        <Wrapper1>
+          Already have an account?&ensp;
+          <Link to="/login" style={{ color: "blue" }}>
+            Login
+          </Link>
+        </Wrapper1>
       </Container>
       <Footer />
     </div>

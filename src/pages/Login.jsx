@@ -2,9 +2,13 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+<<<<<<< Updated upstream
 import Footer from "../components/Footer";
 
 
+=======
+import Button from "../components/StyledComponents";
+>>>>>>> Stashed changes
 
 const Container = styled.div`
   width: 100vw;
@@ -22,10 +26,10 @@ const Container1 = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #f6f8fa;
-`
+`;
 
 const Wrapper = styled.div`
-  display: flex;  
+  display: flex;
   padding: 20px;
   width: 30%;
   /* background-color: #f6f8fa; */
@@ -34,7 +38,7 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Wrapper1 = styled.div` 
+const Wrapper1 = styled.div`
   margin-top: 20px;
   padding: 20px;
   width: 30%;
@@ -55,11 +59,10 @@ const Title = styled.h1`
 `;
 
 const List = styled.form`
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 `;
-
 
 const Input = styled.input`
   flex: 1;
@@ -86,28 +89,13 @@ const Idname = styled.p`
   margin-bottom: 3px;
   font-size: 15px;
   font-weight: 500;
-`
+`;
 
 const Idname1 = styled(Link)`
   color: blue;
   font-size: 15px;
   font-weight: 500;
   text-align: right;
-`
-
-const Button = styled.button`
-  border: none;
-  padding: 12px 20px;
-  background-color: #00bf63;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 5px;
-  :hover{
-    background-color: #00964d;
-    cursor: pointer;
-  }
-  width: 20vw;
-  font-weight: 700;
 `;
 
 const Middler = styled.div`
@@ -119,12 +107,12 @@ const Middler = styled.div`
 const Middler1 = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const Login = () => {
   return (
     <div>
-      <Navbar /> 
+      <Navbar />
       <Container>
         <Wrapper>
           <Middler>
@@ -138,23 +126,24 @@ const Login = () => {
 
             <Inputid>
               <Container1>
-                <Idname>Password</Idname> <Idname1 to= "/resetpassword">Forgot Password?</Idname1>
+                <Idname>Password</Idname>{" "}
+                <Idname1 to="/resetpassword">Forgot Password?</Idname1>
               </Container1>
-              < Input/>
+              <Input />
             </Inputid>
-            
-            
           </List>
           <Middler1>
-            <Link to='/' style={{ textDecoration: "none", color: "white" }}>
-              <Button
-                style={{ color: "white" }}>
-                LOGIN
-              </Button>
+            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <Button style={{ color: "white" }}>LOGIN</Button>
             </Link>
           </Middler1>
         </Wrapper>
-        <Wrapper1>Don't have an account?&ensp;<Link to= "/register" style={{color: "blue"}}>Register</Link></Wrapper1> 
+        <Wrapper1>
+          Don't have an account?&ensp;
+          <Link to="/register" style={{ color: "blue" }}>
+            Register
+          </Link>
+        </Wrapper1>
       </Container>
       <Footer />
     </div>

@@ -11,6 +11,7 @@ const Container = styled.div`
   background-color: #1e285e;
   width: 100%;
   position: fixed;
+  z-index: 3;
 `;
 
 const Wrapper = styled.div`

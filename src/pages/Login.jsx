@@ -8,7 +8,7 @@ import Button from "../components/StyledComponents";
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,8 +28,8 @@ const Wrapper = styled.div`
   display: flex;
   padding: 20px;
   width: 30%;
-  /* background-color: #f6f8fa; */
-  background-color: lightcyan;
+  background-color: #f6f8fa;
+  /* background-color: lightcyan; */
   border-radius: 10px;
   flex-direction: column;
 `;
@@ -38,8 +38,8 @@ const Wrapper1 = styled.div`
   margin-top: 20px;
   padding: 20px;
   width: 30%;
-  /* background-color: #f6f8fa; */
-  background-color: lightcyan;
+  background-color: #f6f8fa;
+  /* background-color: lightcyan; */
   color: blue;
   border-radius: 10px;
   display: flex;

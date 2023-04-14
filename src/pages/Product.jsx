@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../components/StyledComponents";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import Footer from "../components/Footer";
 
 const Filler = styled.div`
   height: 10vh;
@@ -12,22 +14,76 @@ const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
 `;
 
 const Wrapper1 = styled.div`
-  /* display: flex; */
+  display: flex;
   /* flex: 1; */
   margin-right: 10vw;
-  /* flex-direction: column; */
+  flex-direction: column;
+  height: 80vh;
+  width: 25vw;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: lightgray; */
+`;
+
+const Info = styled.div`
+  opacity: 0;
+  width: 100%;
   height: 50vh;
-  justify-content: space-between;
+  margin-top: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0, 0.1);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1;
+  margin: 5px;
+  min-width: 280px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:hover ${Info} {
+    opacity: 1;
+  }
 `;
 
 const Image = styled.img`
-  height: 85%;
-  padding-bottom: 20px;
+  height: 50vh;
+  /* padding-bottom: 20px;
+  object-fit: cover; */
+  z-index: 2;
+  /* box-shadow: 0px 0px 5px #696969; */
+`;
+
+const Icon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: pink;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 `;
 
 const ButtonWrapper = styled.button`
@@ -40,13 +96,19 @@ const ButtonWrapper = styled.button`
 const Wrapper2 = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-right: 27vw;
+  /* align-items: flex-start; */
+  /* background-color: yellow; */
+  width: 50vw;
+  height: 75vh;
+  margin-top: 20px;
+  /* margin-right: 27vw; */
 `;
 
 const Description = styled.div`
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
+  margin-top: 10px;
 `;
 
 const DescId = styled.h3`
@@ -57,6 +119,23 @@ const DescId = styled.h3`
 const DescContent = styled.p`
   display: flex;
   justify-content: left;
+  font-family: "DynaPuff", cursive;
+`;
+
+const Divider = styled.hr`
+  background-color: lightgray;
+  width: 100%;
+  height: 3px;
+  border: none;
+`;
+
+const Comments = styled.div`
+  border: 2px solid lightgray;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-weight: 500;
+  padding: 5px;
 `;
 
 const Product = () => {
@@ -66,24 +145,66 @@ const Product = () => {
       <Filler></Filler>
       <Container>
         <Wrapper1>
-          <Image src="https://th.bing.com/th/id/OIP.o2hpFnUg2tfIYjubSXiw7gHaKK?pid=ImgDet&rs=1" />
+          <ImageWrapper>
+            <Image src="https://www.prodirectsport.com/cricket/productimages/Main/193888_Main_Thumb_0380895.jpg" />
+            <Info>
+              <Icon>
+                <FavoriteBorderIcon />
+              </Icon>
+            </Info>
+          </ImageWrapper>
           <ButtonWrapper>
-            <Button style={{ color: "white" }}>Button1</Button>
-            <Button style={{ color: "white" }}>Button2</Button>
+            <Button marginbelow style={{ color: "white" }}>
+              Request Seller Contact
+            </Button>
+            <Button marginbelow style={{ color: "white" }}>
+              Buy Item
+            </Button>
           </ButtonWrapper>
         </Wrapper1>
         <Wrapper2>
           <Description>
-            <DescId>Name</DescId>
-            <DescContent>Sahil</DescContent>
+            <DescId>Product</DescId>
+            <DescContent>Cricket Bat</DescContent>
           </Description>
+          <Divider />
+          <Description>
+            <DescId>Company</DescId>
+            <DescContent>Kookaburra</DescContent>
+          </Description>
+          <Divider />
+          <Description>
+            <DescId>Categeory</DescId>
+            <DescContent>Sports Equipment</DescContent>
+          </Description>
+          <Divider />
+          <Description>
+            <DescId>Size</DescId>
+            <DescContent>2ft</DescContent>
+          </Description>
+          <Divider />
           <Description>
             <DescId>Age</DescId>
-            <DescContent>20</DescContent>
+            <DescContent>2 years</DescContent>
           </Description>
-          <Button style={{ color: "white" }}>Button3</Button>
+          <Divider />
+          <Description>
+            <DescId>Product Details</DescId>
+            <DescContent>
+              It is a kookoburra bat weighs 1kg provided with a grip. It is well
+              knocked and doesn't have a single crack. It is provided with
+              getting.
+            </DescContent>
+          </Description>
+          <Divider />
+          <Comments>
+            <Link to="\Comments" style={{ color: "blue" }}>
+              Comments
+            </Link>
+          </Comments>
         </Wrapper2>
       </Container>
+      <Footer />
     </div>
   );
 };

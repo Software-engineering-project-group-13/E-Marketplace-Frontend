@@ -8,24 +8,22 @@ import { Routes, Route } from "react-router-dom";
 import ResetPassword from "./pages/ResetPassword";
 import ChangePassword from "./pages/ChangePassword";
 import NEVerification from "./pages/NEVerification";
-import Favorites from "./pages/Buyer/Favorites"
+import Favorites from "./pages/Buyer/Favorites";
 import AddProducts from "./pages/Seller/AddProduct";
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="register" element={<Register />} />
-      <Route path="profile" element={<Profile />} />
-      <Route path="product" element={<Product />} />
-      <Route path="login" element={<Login />} />
-      <Route path="resetpassword" element={<ResetPassword />} />
-      <Route path="changepassword" element={<ChangePassword />} />
-      <Route path="neverification" element={<NEVerification />} />
-      <Route path="favorites" element={<Favorites />} />
-      <Route path="addproducts" element={<AddProducts />} />
-
-
+      <Route path="/register" element={<Register />} />
+      <Route path="/profile/:userId" element={<Profile />} />
+      <Route path="/product/:id" element={<Product />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/resetpassword" element={<ResetPassword />} />
+      <Route path="/changepassword" element={<ChangePassword />} />
+      <Route path="/neverification" element={<NEVerification />} />
+      <Route path="/favorites/:userId" element={<Favorites />} />
+      <Route path="/addproducts" element={<AddProducts />} />
     </Routes>
   );
 };

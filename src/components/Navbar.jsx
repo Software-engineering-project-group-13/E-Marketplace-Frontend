@@ -1,4 +1,4 @@
-import { HomeOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { HomeOutlined, Search } from "@material-ui/icons";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 

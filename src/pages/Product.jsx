@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import Button from "../components/StyledComponents";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
+import { publicRequest } from "../requestMethods";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Filler = styled.div`
   height: 10vh;
@@ -122,6 +126,12 @@ const DescContent = styled.p`
   font-family: "DynaPuff", cursive;
 `;
 
+const DescContentArray = styled.div`
+  display: flex;
+  justify-content: left;
+  font-family: "DynaPuff", cursive;
+`;
+
 const Divider = styled.hr`
   background-color: lightgray;
   width: 100%;
@@ -139,6 +149,22 @@ const Comments = styled.div`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        // console.log(res.data);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <div>
       <Navbar />
@@ -146,7 +172,7 @@ const Product = () => {
       <Container>
         <Wrapper1>
           <ImageWrapper>
-            <Image src="https://www.prodirectsport.com/cricket/productimages/Main/193888_Main_Thumb_0380895.jpg" />
+            <Image src={product.img} />
             <Info>
               <Icon>
                 <FavoriteBorderIcon />
@@ -165,36 +191,39 @@ const Product = () => {
         <Wrapper2>
           <Description>
             <DescId>Product</DescId>
-            <DescContent>Cricket Bat</DescContent>
+            <DescContent>{product.title}</DescContent>
           </Description>
           <Divider />
           <Description>
             <DescId>Company</DescId>
-            <DescContent>Kookaburra</DescContent>
+            <DescContent>{product.company}</DescContent>
           </Description>
           <Divider />
           <Description>
             <DescId>Categeory</DescId>
-            <DescContent>Sports Equipment</DescContent>
+            <DescContentArray>
+              {product.categories?.map((c) => (
+                <DescContent>
+                  {c}
+                  <p>&ensp;</p>
+                </DescContent>
+              ))}
+            </DescContentArray>
           </Description>
           <Divider />
           <Description>
             <DescId>Size</DescId>
-            <DescContent>2ft</DescContent>
+            <DescContent>{product.size}</DescContent>
           </Description>
           <Divider />
           <Description>
             <DescId>Age</DescId>
-            <DescContent>2 years</DescContent>
+            <DescContent>{product.age}</DescContent>
           </Description>
           <Divider />
           <Description>
             <DescId>Product Details</DescId>
-            <DescContent>
-              It is a kookoburra bat weighs 1kg provided with a grip. It is well
-              knocked and doesn't have a single crack. It is provided with
-              getting.
-            </DescContent>
+            <DescContent>{product.desc}</DescContent>
           </Description>
           <Divider />
           <Comments>

@@ -1,10 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 
-// import { Link } from "react-router-dom";
+import { userRequest } from "../requestMethods";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
 import Button from "../components/StyledComponents";
 
 const Filler = styled.div`
@@ -96,6 +99,21 @@ const Image = styled.img`
 `;
 
 const Profile = () => {
+  const location = useLocation();
+  const userId = location.pathname.split("/")[2];
+
+  const [profile, setProfile] = useState({});
+
+  useEffect(() => {
+    const getProfile = async () => {
+      try {
+        const res = await userRequest.get("/users/find/" + userId);
+        // console.log(res.data);
+        setProfile(res.data);
+      } catch {}
+    };
+    getProfile();
+  }, [userId]);
   return (
     <div>
       <Navbar />
@@ -106,17 +124,17 @@ const Profile = () => {
           <List>
             <Inputid>
               <Idname>NAME</Idname>
-              <Input>Sahil</Input>
+              <Input>{profile.firstname}</Input>
             </Inputid>
 
             <Inputid>
-              <Idname>ROLL NO</Idname>
-              <Input>CS20BTECH11033</Input>
+              <Idname>USERNAME</Idname>
+              <Input>{profile.username}</Input>
             </Inputid>
 
             <Inputid>
               <Idname>EMAIL</Idname>
-              <Input>cs20btech11033@iith.ac.in</Input>
+              <Input>{profile.email}</Input>
             </Inputid>
 
             <Inputid>
@@ -126,7 +144,7 @@ const Profile = () => {
 
             <Inputid>
               <Idname>MOBILE NO.</Idname>
-              <Input>9999999999</Input>
+              <Input>{profile.phonenumber}</Input>
             </Inputid>
           </List>
         </Wrapper>

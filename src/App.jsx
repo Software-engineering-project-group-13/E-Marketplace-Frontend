@@ -8,6 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import ResetPassword from "./pages/ResetPassword";
 import ChangePassword from "./pages/ChangePassword";
 import NEVerification from "./pages/NEVerification";
+import Favorites from "./pages/Buyer/Favorites"
+import AddProducts from "./pages/Seller/AddProduct";
 
 const App = () => {
   return (
@@ -20,6 +22,10 @@ const App = () => {
       <Route path="resetpassword" element={<ResetPassword />} />
       <Route path="changepassword" element={<ChangePassword />} />
       <Route path="neverification" element={<NEVerification />} />
+      <Route path="favorites" element={<Favorites />} />
+      <Route path="addproducts" element={<AddProducts />} />
+
+
     </Routes>
   );
 };

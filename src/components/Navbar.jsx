@@ -116,7 +116,14 @@ const Navbar = () => {
         <Right>
           <FavoriteOption>
             <FavoriteBorderIcon style={{ color: "white", fontSize: 27 }} />
-            <p>Favorites</p>
+            <p>
+              <Link
+                to="/Favorites"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                Favorites
+              </Link>
+            </p>
           </FavoriteOption>
           <ProfileOption>
             <AccountCircle style={{ color: "white", fontSize: 30 }} />

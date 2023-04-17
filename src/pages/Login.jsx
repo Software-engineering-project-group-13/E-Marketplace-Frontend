@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-
+import { login } from "../redux/apiCalls";
 import Button from "../components/StyledComponents";
+import { useDispatch } from "react-redux";
 
 const Container = styled.div`
   width: 100vw;
@@ -106,6 +108,16 @@ const Middler1 = styled.div`
 `;
 
 const Login = () => {
+  const [username, setUsername] = useState({});
+  const [password, setPassword] = useState({});
+
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    login(dispatch, { username, password });
+  };
+
   return (
     <div>
       <Navbar />
@@ -117,7 +129,7 @@ const Login = () => {
           <List>
             <Inputid>
               <Idname>Username/Institute email-id</Idname>
-              <Input />
+              <Input onChange={(e) => setUsername(e.target.value)} />
             </Inputid>
 
             <Inputid>
@@ -125,12 +137,17 @@ const Login = () => {
                 <Idname>Password</Idname>{" "}
                 <Idname1 to="/resetpassword">Forgot Password?</Idname1>
               </Container1>
-              <Input />
+              <Input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Inputid>
           </List>
           <Middler1>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <Button style={{ color: "white" }}>LOGIN</Button>
+              <Button style={{ color: "white" }} onClick={handleClick}>
+                LOGIN
+              </Button>
             </Link>
           </Middler1>
         </Wrapper>

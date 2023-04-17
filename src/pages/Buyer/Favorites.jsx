@@ -95,8 +95,12 @@ const ProdName = styled.div`
 `;
 
 const ProdCategory = styled.div`
-  font-size: large;
+  font-size: medium;
   font-weight: 300;
+  display: flex;
+`;
+
+const ProdArrCategory = styled.div`
   display: flex;
 `;
 
@@ -148,7 +152,14 @@ const GetProductFromArr = (productId) => {
       </ImageWrapper>
       <ProdName>
         {product.title}
-        <ProdCategory>Sports Equipment</ProdCategory>
+        <ProdArrCategory>
+          {product.categories?.map((c) => (
+            <ProdCategory>
+              {c}
+              <p>&ensp;</p>
+            </ProdCategory>
+          ))}
+        </ProdArrCategory>
       </ProdName>
       <PriceContainer>{product.price}</PriceContainer>
       <ButtonWrapper>

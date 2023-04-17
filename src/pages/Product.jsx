@@ -103,7 +103,7 @@ const Wrapper2 = styled.div`
   /* align-items: flex-start; */
   /* background-color: yellow; */
   width: 50vw;
-  height: 75vh;
+  height: 80vh;
   margin-top: 20px;
   /* margin-right: 27vw; */
 `;
@@ -224,6 +224,11 @@ const Product = () => {
           <Description>
             <DescId>Product Details</DescId>
             <DescContent>{product.desc}</DescContent>
+          </Description>
+          <Divider />
+          <Description>
+            <DescId>Price</DescId>
+            <DescContent>{product.price}</DescContent>
           </Description>
           <Divider />
           <Comments>

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-
+import { signup } from "../redux/apiCalls";
 import Button from "../components/StyledComponents";
+import { useDispatch } from "react-redux";
 
 const Filler = styled.div`
   height: 10vh;
@@ -103,6 +104,29 @@ const Middler1 = styled.div`
 `;
 
 const Register = () => {
+  const [firstname, setFirstname] = useState({});
+  const [lastname, setLastname] = useState({});
+  const [username, setUsername] = useState({});
+  const [email, setEmail] = useState({});
+  const [phonenumber, setPhonenumber] = useState({});
+  const [password, setPassword] = useState({});
+  const [confirmpassword, setConfirmPassword] = useState({});
+
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    signup(dispatch, {
+      firstname,
+      lastname,
+      username,
+      email,
+      phonenumber,
+      password,
+      confirmpassword,
+    });
+  };
+
   return (
     <div>
       <Navbar />
@@ -116,36 +140,42 @@ const Register = () => {
             <Middler>
               <Inputid>
                 <Idname>First name</Idname>
-                <Input1 />
+                <Input1 onChange={(e) => setFirstname(e.target.value)} />
               </Inputid>
               <Inputid>
                 <Idname>Last name</Idname>
-                <Input1 />
+                <Input1 onChange={(e) => setLastname(e.target.value)} />
               </Inputid>
             </Middler>
             <Inputid>
               <Idname>Username</Idname>
-              <Input />
+              <Input onChange={(e) => setUsername(e.target.value)} />
             </Inputid>
 
             <Inputid>
               <Idname>Institute email-id</Idname>
-              <Input />
+              <Input onChange={(e) => setEmail(e.target.value)} />
             </Inputid>
 
             <Inputid>
               <Idname>Phone number</Idname>
-              <Input />
+              <Input onChange={(e) => setPhonenumber(e.target.value)} />
             </Inputid>
 
             <Inputid>
               <Idname>Password</Idname>
-              <Input />
+              <Input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Inputid>
 
             <Inputid>
               <Idname>Confirm Password</Idname>
-              <Input />
+              <Input
+                type="password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
             </Inputid>
           </List>
           <Middler1>
@@ -153,7 +183,9 @@ const Register = () => {
               to="/neverification"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <Button style={{ color: "white" }}>SIGNUP</Button>
+              <Button style={{ color: "white" }} onClick={handleClick}>
+                SIGNUP
+              </Button>
             </Link>
           </Middler1>
         </Wrapper>

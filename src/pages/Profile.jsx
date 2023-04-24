@@ -108,7 +108,7 @@ const Profile = () => {
     const getProfile = async () => {
       try {
         const res = await userRequest.get("/users/find/" + userId);
-        // console.log(res.data);
+        //console.log(res.data);
         setProfile(res.data);
       } catch {}
     };

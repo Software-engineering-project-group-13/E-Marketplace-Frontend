@@ -9,6 +9,13 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCube, Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+
+import "./css-styles/Product.css"
 
 const Filler = styled.div`
   height: 10vh;
@@ -53,42 +60,43 @@ const Info = styled.div`
 const ImageWrapper = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 280px;
+  /* min-width: 280px; */
+  width: 100%;
   height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-
-  &:hover ${Info} {
+  /* background-color: whitesmoke; */
+  /* &:hover ${Info} {
     opacity: 1;
-  }
+  } */
 `;
 
-const Image = styled.img`
-  height: 50vh;
-  /* padding-bottom: 20px;
-  object-fit: cover; */
-  z-index: 2;
-  /* box-shadow: 0px 0px 5px #696969; */
-`;
+// const Image = styled.img`
+//   height: 50vh;
+//   /* padding-bottom: 20px;
+//   object-fit: cover; */
+//   z-index: 2;
+//   /* box-shadow: 0px 0px 5px #696969; */
+// `;
 
-const Icon = styled.div`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  transition: all 0.3s ease;
+// const Icon = styled.div`
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   margin: 10px;
+//   transition: all 0.3s ease;
 
-  &:hover {
-    background-color: pink;
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-`;
+//   &:hover {
+//     background-color: pink;
+//     transform: scale(1.1);
+//     cursor: pointer;
+//   }
+// `;
 
 const ButtonWrapper = styled.button`
   display: flex;
@@ -172,12 +180,35 @@ const Product = () => {
       <Container>
         <Wrapper1>
           <ImageWrapper>
-            <Image src={product.img} />
-            <Info>
+            {/* <Image src={product.img} /> */}
+            <sliderWrapper>
+              <Swiper
+                effect={"cube"}
+                grabCursor={true}
+                cubeEffect={{
+                  shadow: true,
+                  slideShadows: true,
+                  shadowOffset: 20,
+                  shadowScale: 0.94,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[EffectCube, Pagination]}
+                className="mySwiper"
+              >
+                {product.img?.map((c) => (
+                  <SwiperSlide>
+                    <img src={c} alt={c}/>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </sliderWrapper>
+            {/* <Info>
               <Icon>
                 <FavoriteBorderIcon />
               </Icon>
-            </Info>
+            </Info> */}
           </ImageWrapper>
           <ButtonWrapper>
             <Button marginbelow style={{ color: "white" }}>

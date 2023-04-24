@@ -47,7 +47,7 @@ const PriceHeading = styled.div`
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  /* height: 150vh; */
   justify-content: center;
 `;
 

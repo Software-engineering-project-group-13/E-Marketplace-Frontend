@@ -15,10 +15,10 @@ const Button = styled.button`
   font-weight: 700;
   box-shadow: 0px 0px 5px #696969;
 
-  width: ${props => props.profile ? '18vw' : '20vw'};
-  margin-bottom: ${props => props.marginbelow ? '20px' : '10px'};
+  width: ${(props) => (props.profile ? "18vw" : "20vw")};
+  margin-bottom: ${(props) => (props.marginbelow ? "20px" : "10px")};
 
-  &:disabled{
+  &:disabled {
     color: gray;
     cursor: not-allowed;
   }

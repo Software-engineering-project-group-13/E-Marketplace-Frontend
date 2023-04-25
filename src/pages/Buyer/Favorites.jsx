@@ -60,7 +60,6 @@ const Item = styled.div`
   margin-bottom: 0.5%;
   padding-left: 2%;
   &:hover {
-    cursor: pointer;
     filter: brightness(0.9);
   }
 `;
@@ -132,49 +131,54 @@ const ButtonWrapper = styled.button`
 `;
 
 const GetProductFromArr = (productId) => {
-  console.log(productId.productId);
+  // console.log(productId);
   const [product, setProduct] = useState({});
   useEffect(() => {
     const getProduct = async () => {
       try {
+        // console.log(productId.productId);
         const res = await publicRequest.get(
           "/products/find/" + productId.productId
         );
-        console.log(res.data);
+        // console.log(res.data);
         setProduct(res.data);
       } catch {}
     };
     getProduct();
   }, [productId.productId]);
 
-  console.log(product);
-
+  // if (Object.keys(product).length !== 0) console.log(product);
+  const handleClick = () => {};
   return (
-    <Link
-      to={"/product/" + product._id}
-      style={{ textDecoration: "none", color: "black" }}
-    >
-      <Item>
-        <ImageWrapper>
-          <Image src={product.img} />
-        </ImageWrapper>
-        <ProdName>
-          {product.title}
-          <ProdArrCategory>
-            {product.categories?.map((c) => (
-              <ProdCategory>
-                {c}
-                <p>&ensp;</p>
-              </ProdCategory>
-            ))}
-          </ProdArrCategory>
-        </ProdName>
-        <PriceContainer>{product.price}</PriceContainer>
-        <ButtonWrapper>
-          <Button>CONTACT SELLER</Button>
-        </ButtonWrapper>
-      </Item>
-    </Link>
+    <>
+      {Object.keys(product).length !== 0 && (
+        <Item>
+          <ImageWrapper>
+            <Image src={product.img[0]} />
+          </ImageWrapper>
+          <ProdName>
+            {product.title}
+            <ProdArrCategory>
+              {product.categories?.map((c) => (
+                <ProdCategory>
+                  {c}
+                  <p>&ensp;</p>
+                </ProdCategory>
+              ))}
+            </ProdArrCategory>
+          </ProdName>
+          <PriceContainer>{product.price}</PriceContainer>
+          <ButtonWrapper>
+            <Link
+              to={"/product/" + product._id}
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <Button>Product Details</Button>
+            </Link>
+          </ButtonWrapper>
+        </Item>
+      )}
+    </>
   );
 };
 
@@ -205,11 +209,8 @@ const Favorites = () => {
       </TableHeading>
       <Container>
         <Divider />
-        {favorites.products?.map((favorite) => (
-          <div>
-            <GetProductFromArr productId={favorite.productId} />
-            <Divider />
-          </div>
+        {favorites.products?.map((product) => (
+          <GetProductFromArr productId={product} />
         ))}
       </Container>
       <Footer />

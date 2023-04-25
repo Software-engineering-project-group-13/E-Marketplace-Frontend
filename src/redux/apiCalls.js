@@ -5,6 +5,8 @@ import {
   loginSuccess,
   registerFailure,
   registerSuccess,
+  logoutSuccess,
+  logoutFailure,
 } from "./userRedux";
 
 export const login = async (dispatch, user) => {
@@ -24,5 +26,14 @@ export const signup = async (dispatch, user) => {
     dispatch(registerSuccess(res.data));
   } catch (err) {
     dispatch(registerFailure());
+  }
+};
+
+export const logout = async (dispatch) => {
+  try {
+    localStorage.clear();
+    dispatch(logoutSuccess());
+  } catch (err) {
+    dispatch(logoutFailure());
   }
 };

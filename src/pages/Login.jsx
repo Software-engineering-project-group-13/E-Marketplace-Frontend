@@ -6,7 +6,11 @@ import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { login } from "../redux/apiCalls";
 import Button from "../components/StyledComponents";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Alert from "@mui/material/Alert";
+import Collapse from "@mui/material/Collapse";
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
 
 const Container = styled.div`
   width: 100vw;
@@ -112,10 +116,14 @@ const Login = () => {
   const [password, setPassword] = useState({});
 
   const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(true);
+
+  const { isFetching, error } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
+    setOpen(true);
   };
 
   return (
@@ -123,6 +131,28 @@ const Login = () => {
       <Navbar />
       <Container>
         <Wrapper>
+          {error && (
+            <Collapse in={open}>
+              <Alert
+                severity="error"
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                  >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                sx={{ mb: 2 }}
+              >
+                please enter valid credentials
+              </Alert>
+            </Collapse>
+          )}
           <Middler>
             <Title> LOGIN </Title>
           </Middler>
@@ -145,7 +175,11 @@ const Login = () => {
           </List>
           <Middler1>
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <Button style={{ color: "white" }} onClick={handleClick}>
+              <Button
+                style={{ color: "white" }}
+                onClick={handleClick}
+                disabled={isFetching}
+              >
                 LOGIN
               </Button>
             </Link>

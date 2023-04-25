@@ -18,6 +18,10 @@ const Button = styled.button`
   width: ${props => props.profile ? '18vw' : '20vw'};
   margin-bottom: ${props => props.marginbelow ? '20px' : '10px'};
 
+  &:disabled{
+    color: gray;
+    cursor: not-allowed;
+  }
 `;
 
 export default Button;

@@ -1,10 +1,15 @@
 import { HomeOutlined, Search } from "@material-ui/icons";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
-import React from "react";
+import PersonIcon from "@mui/icons-material/Person";
+import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/apiCalls";
 
 const Container = styled.div`
   height: 50px;
@@ -89,15 +94,65 @@ const FavoriteOption = styled.div`
   padding: 0 10px;
 `;
 
-const ProfileOption = styled.div`
+const ProfileOption = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  /* color: white; */
+  background-color: #1e285e;
   padding: 0 10px;
+  transition: filter 300ms;
+  border: none;
+  &:hover {
+    filter: brightness(1.2);
+    cursor: pointer;
+  }
+`;
+
+const Dropdown = styled.div`
+  position: absolute;
+  top: 40px;
+  width: 150px;
+  transition: 1000ms;
+  transform: ${(props) =>
+    props.login ? "translateX(-15%)" : "translateX(-78%)"};
+  background-color: #1e285e;
+  border-color: green;
+  border-width: 100px;
+  border-radius: 10px;
+  padding: 1rem;
+  overflow: hidden;
+`;
+
+const MenuItemContainer = styled.div`
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+
+  transition: background 500ms;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: #3547af;
+  }
+`;
+
+const Menudata = styled.p`
+  color: white;
+  padding-left: 10px;
 `;
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    logout(dispatch);
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -114,28 +169,68 @@ const Navbar = () => {
         </Left>
         <Center></Center>
         <Right>
-          <FavoriteOption>
-            <FavoriteBorderIcon style={{ color: "white", fontSize: 27 }} />
-            <p>
-              <Link
-                to="/Favorites"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Favorites
-              </Link>
-            </p>
-          </FavoriteOption>
-          <ProfileOption>
+          {user && (
+            <FavoriteOption>
+              <FavoriteBorderIcon style={{ color: "white", fontSize: 27 }} />
+              <p>
+                <Link
+                  to={"/favorites/" + user._id}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Favorites
+                </Link>
+              </p>
+            </FavoriteOption>
+          )}
+          <ProfileOption onClick={() => setOpen(!open)}>
             <AccountCircle style={{ color: "white", fontSize: 30 }} />
-            <p>
-              <Link
-                to="/register"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Profile
-              </Link>
-            </p>
           </ProfileOption>
+
+          {open &&
+            (user ? (
+              <Dropdown login>
+                <Link
+                  to={"/profile/" + user._id}
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <MenuItemContainer>
+                    <PersonIcon />
+                    <Menudata>View Profile</Menudata>
+                  </MenuItemContainer>
+                </Link>
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", color: "white" }}
+                  onClick={logoutHandler}
+                >
+                  <MenuItemContainer>
+                    <LogoutIcon />
+                    <Menudata>Logout</Menudata>
+                  </MenuItemContainer>
+                </Link>
+              </Dropdown>
+            ) : (
+              <Dropdown>
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <MenuItemContainer>
+                    <LoginIcon />
+                    <Menudata>Login</Menudata>
+                  </MenuItemContainer>
+                </Link>
+                <Link
+                  to="/register"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <MenuItemContainer>
+                    <AppRegistrationIcon />
+                    <Menudata>register</Menudata>
+                  </MenuItemContainer>
+                </Link>
+              </Dropdown>
+            ))}
         </Right>
       </Wrapper>
     </Container>

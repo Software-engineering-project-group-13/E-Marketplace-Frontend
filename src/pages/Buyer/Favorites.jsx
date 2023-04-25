@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "../../components/StyledComponents";
 import Footer from "../../components/Footer";
 import styled from "styled-components";
@@ -59,6 +59,10 @@ const Item = styled.div`
   margin-top: 0.5%;
   margin-bottom: 0.5%;
   padding-left: 2%;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -146,26 +150,31 @@ const GetProductFromArr = (productId) => {
   console.log(product);
 
   return (
-    <Item>
-      <ImageWrapper>
-        <Image src={product.img} />
-      </ImageWrapper>
-      <ProdName>
-        {product.title}
-        <ProdArrCategory>
-          {product.categories?.map((c) => (
-            <ProdCategory>
-              {c}
-              <p>&ensp;</p>
-            </ProdCategory>
-          ))}
-        </ProdArrCategory>
-      </ProdName>
-      <PriceContainer>{product.price}</PriceContainer>
-      <ButtonWrapper>
-        <Button>CONTACT SELLER</Button>
-      </ButtonWrapper>
-    </Item>
+    <Link
+      to={"/product/" + product._id}
+      style={{ textDecoration: "none", color: "black" }}
+    >
+      <Item>
+        <ImageWrapper>
+          <Image src={product.img} />
+        </ImageWrapper>
+        <ProdName>
+          {product.title}
+          <ProdArrCategory>
+            {product.categories?.map((c) => (
+              <ProdCategory>
+                {c}
+                <p>&ensp;</p>
+              </ProdCategory>
+            ))}
+          </ProdArrCategory>
+        </ProdName>
+        <PriceContainer>{product.price}</PriceContainer>
+        <ButtonWrapper>
+          <Button>CONTACT SELLER</Button>
+        </ButtonWrapper>
+      </Item>
+    </Link>
   );
 };
 
